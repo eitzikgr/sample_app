@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe "Static pages" do
 
+	let (:base_title){ "Ruby on Rails Tutorial Sample App |"}
   describe "Home page" do
 
     it "should have the content 'Sample App'" do
@@ -12,7 +13,7 @@ describe "Static pages" do
 	it "should have the right title" do
   visit '/static_pages/home'
   page.should have_selector('title',
-                    :text => "Ruby on Rails Tutorial Sample App | Home")
+                    :text => "#{base_title} Home")
 end
 
   end
@@ -27,7 +28,7 @@ end
 	it "not found title" do
 		visit '/static_pages/help'
 		page.should have_selector('title',
-		:text => "Ruby on Rails Tutorial Sample App | help")
+		:text => "#{base_title} help")
   end
   end
   
@@ -40,7 +41,7 @@ end
 	it "should have thr right titlt" do
 		visit '/static_pages/about'
 		page.should have_selector('title',
-			:text =>"Ruby on Rails Tutorial Sample App | About Us")
+			:text => "#{base_title} About Us")
  end
 end
 end
